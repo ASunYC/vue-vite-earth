@@ -10,25 +10,9 @@ function init_provider(viewer) {
 }
 
 function add_tianditumap(layer_new) {
-    // [
-    //     "789e558be762ff832392a0393fd8a4f1",
-    //     "bcc62222fc634ec736589c483de933e6",
-    //     "d083e4cf30bfc438ef93436c10c2c20a",
-    //     "5e5949f7e96e8a136ef36a6594f18cdf"
-    // ]
     let tiandiKey = "789e558be762ff832392a0393fd8a4f1";
-    // let myprovider = new Cesium.UrlTemplateImageryProvider({
-    //     url: "http://{s}.tianditu.gov.cn/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=" + tiandiKey,
-    //     subdomains: ["t0","t1","t2","t3","t4","t5","t6","t7"],
-    //     style: "default",
-    //     format: "image/jpeg",
-    //     tileMatrixSetID: "GoogleMapsCompatible",
-    //     maximumLevel: 18,
-    // });
-    // layer_new.addImageryProvider(myprovider);
-
     let myprovider1 = new Cesium.UrlTemplateImageryProvider({
-        url: "http://{s}.tianditu.gov.cn/DataServer?T=ibo_w&x={x}&y={y}&l={z}&tk=" + tiandiKey,
+        url: "//webst02.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
         subdomains: ["t0","t1","t2","t3","t4","t5","t6","t7"],
         style: "default",
         format: "image/jpeg",

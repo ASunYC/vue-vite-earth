@@ -1,9 +1,8 @@
 import * as Cesium from 'cesium'
 import CesiumNavigation from "cesium-navigation-es6";
-import mytest from "./cesium-test";
 import init_provider from "./init_provider";
 
-export function initCesium(cesiumContainer) {
+export function initCesium(container) {
   let options = {
     url: "assets/earth.jpg",
     rectangle: new Cesium.Rectangle.fromDegrees(-180, -85, 180, 85),
@@ -12,7 +11,7 @@ export function initCesium(cesiumContainer) {
   };
   // debugger
   let layer1 = new Cesium.SingleTileImageryProvider(options);
-  var viewer = new Cesium.Viewer(cesiumContainer, {
+  var viewer = new Cesium.Viewer(container, {
     imageryProvider: layer1,
     animation: false, //是否创建动画小器件，左下角仪表
     baseLayerPicker: false, //是否显示图层选择器
@@ -45,7 +44,6 @@ export function initCesium(cesiumContainer) {
   nav_options.enableCompassOuterRing = true;
   new CesiumNavigation(viewer, nav_options)
   flytochina(viewer)
-  mytest(viewer)
   return viewer;
 }
 

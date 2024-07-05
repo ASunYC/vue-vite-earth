@@ -8,8 +8,14 @@ const router = createRouter({
         {
             path: "/index.html",
             name: "CesiumEarth",
-            component: () => import("../components/CesiumEarth.vue")
-        }, {
+            component: () => import("../components/CesiumEarth/Index.vue")
+        },
+        {
+            path: "/leaflet",
+            name: "LeafletEarth",
+            component: () => import("../components/LeafletEarth/Index.vue")
+        },
+        {
             path: '/:pathMatch(.*)*',
             redirect: "/index.html"
         }

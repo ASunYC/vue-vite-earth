@@ -1,13 +1,17 @@
-import {createStore} from "vuex";
+import { createStore } from "vuex";
 
 const store = createStore({
   state: {
-    station_data:{}
+    componentsVue: [],
   },
   mutations: {
-    saveStationData(state,station_data){
-      state.station_data = station_data
-    }
+    dis(state, guid) {
+      state.componentsVue.forEach((item, index) => {
+        if (item.guid == guid) {
+          state.componentsVue.splice(index, 1)
+        }
+      })
+    },
   },
   actions: {
   },

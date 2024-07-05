@@ -1,4 +1,5 @@
 <template>
+  <div id="cesiumContainer" class="cesiumContainer"></div>
   <div id="web_body">
     <div id="loadingIndicator" class="loadingIndicator"></div>
     <div class="web_down">
@@ -12,8 +13,7 @@
 <script>
 
 import * as Cesium from 'cesium'
-import { initCesium } from "../utils/init-cesium";
-window.viewer = initCesium('cesiumContainer');
+import { initCesium } from "./init_cesium";
 // import HeaderComponent from "./HeaderComonpent.vue"
 // import Navigation from "./Navigation.vue"
 // import FooterComponent from "./FooterComonpent.vue"
@@ -31,6 +31,7 @@ export default {
     }
   },
   mounted() {
+    window.viewer = initCesium('cesiumContainer');
     this.init_cesium(window)
   },
   methods: {
@@ -77,6 +78,10 @@ export default {
 
 
 <style>
+.cesiumContainer {
+  display: block
+}
+
 #web_body {
   /*position: absolute;*/
   width: 100%;
