@@ -11,4 +11,6 @@ npm run build
 
 ### Preview
 
-![image_preview](./image_preview.png)
+![image_preview](./image_preview_cesium.png)
+
+![image_preview](./image_preview_leaflet.png)
