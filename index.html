@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XXXXX-数字地球</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .cesiumContainer {
+            display: block
+        }
+
+        #video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cesiumContainer" class="cesiumContainer"></div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        // 禁用浏览器右键菜单
+        function doProhibit() {
+            if (window.Event)
+                document.captureEvents(Event.MOUSEUP);
+
+            function nocontextmenu() {
+                event.cancelBubble = true
+                event.returnvalue = false;
+                return false;
+            }
+
+            function norightclick(e) {
+                if (window.Event) {
+                    if (e.which == 2 || e.which == 3)
+                        return false;
+                } else if (event.button == 2 || event.button == 3) {
+                    event.cancelBubble = true
+                    event.returnvalue = false;
+                    return false;
+                }
+            }
+            document.oncontextmenu = nocontextmenu; // for IE5+
+            document.onmousedown = norightclick; //
+        }
+        doProhibit();
+
+
+    </script>
+</body>
+
+</html>
