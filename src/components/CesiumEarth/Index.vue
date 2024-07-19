@@ -78,9 +78,6 @@ export default {
 
 
 <style>
-.cesiumContainer {
-  display: block
-}
 
 #web_body {
   /*position: absolute;*/

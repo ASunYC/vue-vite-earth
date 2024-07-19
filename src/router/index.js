@@ -6,7 +6,7 @@ const router = createRouter({
     routes: [
         { path: "/", redirect: "/index.html" },
         {
-            path: "/index.html",
+            path: "/cesium",
             name: "CesiumEarth",
             component: () => import("../components/CesiumEarth/Index.vue")
         },
@@ -15,10 +15,10 @@ const router = createRouter({
             name: "LeafletEarth",
             component: () => import("../components/LeafletEarth/Index.vue")
         },
-        {
-            path: '/:pathMatch(.*)*',
-            redirect: "/index.html"
-        }
+        // {
+        //     path: '/:pathMatch(.*)*',
+        //     redirect: "/index.html"
+        // }
     ]
 
 })
