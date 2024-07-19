@@ -23,7 +23,9 @@ export default {
         }
     },
     mounted() {
-        initLeaflet('leafletContainer');
+        initLeaflet({
+            container: 'leafletContainer'
+        });
     },
     methods: {
     }

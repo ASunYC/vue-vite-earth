@@ -11,15 +11,38 @@ let isVisibleTile = false;
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-export function initLeaflet(container) {    
+export function initLeaflet(options) {
     // 获取地图容器的位置
-    var mapContainer = document.getElementById(container);
-
-    // 在地图容器中创建Leaflet地图
+    options.container = options.container ? options.container : '';
+    var mapContainer = document.getElementById(options.container);
+    if (!mapContainer) {
+        popTip('地图容器不存在', 200);
+        return;
+    }
+    if (map) {
+        map.remove();
+    }
+    options.epsg = options.epsg ? options.epsg : "3857";
+    if (options.epsg == "3857") {
+        options.epsg = L.CRS.EPSG3857;
+        options.tmsIds = 'w';
+        tileCoordinate = '3857';
+    } else if (options.epsg == "4326") {
+        options.epsg = L.CRS.EPSG4326;
+        options.tmsIds = 'c';
+        tileCoordinate = '4326';
+    }
+    options.zoom = options.zoom ? options.zoom : 2;
+    options.center = options.center ? options.center : [39.905033413167, 116.40191241];
+    // 创建Leaflet地图
     map = L.map(mapContainer, {
-        attributionControl: false,
-        zoomControl: false
-    }).setView([0, 0], 2);
+        crs: options.epsg,
+        center: options.center, // 地图中心
+        zoom: options.zoom, //缩放比列
+        zoomControl: false, //禁用 + - 按钮
+        doubleClickZoom: false, // 禁用双击放大
+        attributionControl: false, // 移除右下角leaflet标识
+    });
 
     // 添加底图
     var baseLayer = L.tileLayer(
