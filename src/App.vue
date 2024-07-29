@@ -2,8 +2,11 @@
   <div id="app">
     <div id="header" class="header">
       <h1>地图导航</h1>
-      <button @click="navigateToCesium">跳转到Cesium</button>
-      <button @click="navigateToLeaflet">跳转到Leaflet</button>
+      <div style="display: flex; flex-direction: column;">
+        <button @click="navigateToCesium" style="margin-top: 20px;">跳转到Cesium</button>
+        <button @click="navigateToLeaflet" style="margin-top: 20px;">跳转到Leaflet</button>
+        <button @click="navigateToBabylon" style="margin-top: 20px;">跳转到Babylon</button>
+      </div>
     </div>
     <!-- 路由视图将在这里渲染 -->
     <router-view></router-view>
@@ -14,10 +17,13 @@ export default {
   name: 'App',
   methods: {
     navigateToCesium() {
-      this.$router.push({ name: 'CesiumEarth' }); // 使用路由名称进行导航
+      this.$router.push({ name: 'CesiumEarth' });
     },
     navigateToLeaflet() {
-      this.$router.push({ name: 'LeafletEarth' }); // 使用路由名称进行导航
+      this.$router.push({ name: 'LeafletEarth' });
+    },
+    navigateToBabylon() {
+      this.$router.push({ name: 'BabylonEarth' });
     }
   }
 };

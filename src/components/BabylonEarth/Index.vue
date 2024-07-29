@@ -1,5 +1,7 @@
 <template>
-    <div id="leafletContainer" class="leafletContainer"></div>
+    <div class="earthContainer">
+        <canvas id="earthContainer" class="earthContainer" />
+    </div>
     <div id="web_body">
         <div id="loadingIndicator" class="loadingIndicator"></div>
         <div class="web_down">
@@ -11,10 +13,10 @@
 </template>
 
 <script>
-import { init } from "./index";
+import { init, isSupportWebGL2 } from "./index";
 
 export default {
-    name: "LeafletEarth",
+    name: "BabylonEarth",
     components: {
     },
     data() {
@@ -23,9 +25,11 @@ export default {
         }
     },
     mounted() {
-        init({
-            container: 'leafletContainer'
-        });
+        if (isSupportWebGL2()) {
+            init({
+                container: 'earthContainer'
+            });
+        }
     },
     methods: {
     }
@@ -34,7 +38,7 @@ export default {
 
 
 <style>
-.leafletContainer {
+.earthContainer {
     width: 100%;
     height: 100%;
 }

@@ -15,6 +15,11 @@ const router = createRouter({
             name: "LeafletEarth",
             component: () => import("../components/LeafletEarth/Index.vue")
         },
+        {
+            path: "/babylon",
+            name: "BabylonEarth",
+            component: () => import("../components/BabylonEarth/Index.vue")
+        },
         // {
         //     path: '/:pathMatch(.*)*',
         //     redirect: "/index.html"

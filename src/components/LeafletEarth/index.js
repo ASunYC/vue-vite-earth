@@ -11,7 +11,7 @@ let isVisibleTile = false;
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-export function initLeaflet(options) {
+export function init(options) {
     // 获取地图容器的位置
     options.container = options.container ? options.container : '';
     var mapContainer = document.getElementById(options.container);

@@ -2,7 +2,7 @@ import * as Cesium from 'cesium'
 import CesiumNavigation from "cesium-navigation-es6";
 import init_provider from "./init_provider";
 
-export function initCesium(container) {
+export function init(container) {
   let options = {
     url: "assets/earth.jpg",
     rectangle: new Cesium.Rectangle.fromDegrees(-180, -85, 180, 85),

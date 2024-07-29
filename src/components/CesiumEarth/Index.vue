@@ -13,7 +13,7 @@
 <script>
 
 import * as Cesium from 'cesium'
-import { initCesium } from "./init_cesium";
+import { init } from "./index";
 // import HeaderComponent from "./HeaderComonpent.vue"
 // import Navigation from "./Navigation.vue"
 // import FooterComponent from "./FooterComonpent.vue"
@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted() {
-    window.viewer = initCesium('cesiumContainer');
+    window.viewer = init('cesiumContainer');
     this.init_cesium(window)
   },
   methods: {
